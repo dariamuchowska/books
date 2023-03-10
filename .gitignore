@@ -7,4 +7,9 @@
 /public/bundles/
 /var/
 /vendor/
+.idea
+.php_cs.cache
+.php-cs-fixer.cache
+.phpunit.result.cache
+.env
 ###< symfony/framework-bundle ###
