@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="pl" datatype="plaintext" original="file.ext">
+  <file source-language="en" datatype="plaintext" original="file.ext">
     <body>
       <trans-unit id="label.actions">
         <source>label.actions</source>
@@ -14,29 +14,41 @@
         <source>label.title</source>
         <target>Tytuł</target>
       </trans-unit>
-      <trans-unit id="label.content">
-        <source>label.content</source>
-        <target>Kontent</target>
+      <trans-unit id="label.blurb">
+        <source>label.blurb</source>
+        <target>Opis</target>
       </trans-unit>
-      <trans-unit id="label.tags">
-        <source>label.tags</source>
-        <target>Tagi</target>
+      <trans-unit id="title.book_list">
+        <source>title.book_list</source>
+        <target>Lista książek</target>
       </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
-        <target>List is empty.</target>
+        <target>Lista jest pusta.</target>
       </trans-unit>
       <trans-unit id="message.record_not_found">
         <source>message.record_not_found</source>
-        <target>Record not found.</target>
+        <target>Nie znaleziono rekordu.</target>
       </trans-unit>
       <trans-unit id="title.record_list">
         <source>title.record_list</source>
-        <target>Records list</target>
+        <target>Lista rekordów</target>
       </trans-unit>
       <trans-unit id="title.record_view">
         <source>title.record_view</source>
-        <target>Record view #%id%</target>
+        <target>Rekord #%id%</target>
+      </trans-unit>
+      <trans-unit id="title.book_details">
+         <source>title.book_details</source>
+         <target>Informacje o książce #%id%</target>
+      </trans-unit>
+      <trans-unit id="action.show">
+         <source>action.show</source>
+         <target>Pokaż</target>
+      </trans-unit>
+      <trans-unit id="action.back_to_list">
+        <source>action.back_to_list</source>
+        <target>Wróć do listy</target>
       </trans-unit>
     </body>
   </file>

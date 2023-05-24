@@ -7,7 +7,9 @@ namespace App\Controller;
 
 use App\Entity\Book;
 use App\Repository\BookRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,7 +22,9 @@ class BookController extends AbstractController
     /**
      * Index action.
      *
-     * @param BookRepository $bookRepository Book repository
+     * @param Request            $request        HTTP Request
+     * @param BookRepository     $bookRepository Book repository
+     * @param PaginatorInterface $paginator      Paginator
      *
      * @return Response HTTP response
      */
@@ -28,14 +32,15 @@ class BookController extends AbstractController
         name: 'book_index',
         methods: 'GET'
     )]
-    public function index(BookRepository $bookRepository): Response
+    public function index(Request $request, BookRepository $taskRepository, PaginatorInterface $paginator): Response
     {
-        $books = $bookRepository->findAll();
-
-        return $this->render(
-            'book/index.html.twig',
-            ['books' => $books]
+        $pagination = $paginator->paginate(
+            $taskRepository->queryAll(),
+            $request->query->getInt('page', 1),
+            BookRepository::PAGINATOR_ITEMS_PER_PAGE
         );
+
+        return $this->render('book/index.html.twig', ['pagination' => $pagination]);
     }
 
     /**

@@ -2,10 +2,6 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="file.ext">
     <body>
-       <trans-unit id="title.task_details">
-           <source>title.task_details</source>
-           <target>Task details #%id%</target>
-       </trans-unit>
       <trans-unit id="label.actions">
         <source>label.actions</source>
         <target>Actions</target>
@@ -18,13 +14,13 @@
         <source>label.title</source>
         <target>Title</target>
       </trans-unit>
-      <trans-unit id="label.content">
-        <source>label.content</source>
-        <target>Content</target>
+      <trans-unit id="label.blurb">
+        <source>label.blurb</source>
+        <target>Blurb</target>
       </trans-unit>
-      <trans-unit id="label.tags">
-        <source>label.tags</source>
-        <target>Tags</target>
+      <trans-unit id="title.book_list">
+        <source>title.book_list</source>
+        <target>List of books</target>
       </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
@@ -41,6 +37,18 @@
       <trans-unit id="title.record_view">
         <source>title.record_view</source>
         <target>Record view #%id%</target>
+      </trans-unit>
+      <trans-unit id="title.book_details">
+         <source>title.book_details</source>
+         <target>Book details #%id%</target>
+      </trans-unit>
+      <trans-unit id="action.show">
+         <source>action.show</source>
+         <target>Show</target>
+      </trans-unit>
+      <trans-unit id="action.back_to_list">
+        <source>action.back_to_list</source>
+        <target>Back to list</target>
       </trans-unit>
     </body>
   </file>
