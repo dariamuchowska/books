@@ -32,10 +32,10 @@ class BookController extends AbstractController
         name: 'book_index',
         methods: 'GET'
     )]
-    public function index(Request $request, BookRepository $taskRepository, PaginatorInterface $paginator): Response
+    public function index(Request $request, BookRepository $bookRepository, PaginatorInterface $paginator): Response
     {
         $pagination = $paginator->paginate(
-            $taskRepository->queryAll(),
+            $bookRepository->queryAll(),
             $request->query->getInt('page', 1),
             BookRepository::PAGINATOR_ITEMS_PER_PAGE
         );
