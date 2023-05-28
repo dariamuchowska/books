@@ -11,6 +11,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.14",
         "knplabs/knp-paginator-bundle": "5.9",
+        "sensio/framework-extra-bundle": "^6.2",
         "symfony/asset": "5.4.*",
         "symfony/console": "5.4.*",
         "symfony/doctrine-bridge": "5.4.*",
@@ -31,7 +32,9 @@
         "fakerphp/faker": "^1.21",
         "friendsofphp/php-cs-fixer": "^3.16",
         "squizlabs/php_codesniffer": "^3.7",
-        "symfony/maker-bundle": "^1.48"
+        "symfony/maker-bundle": "^1.48",
+        "symfony/stopwatch": "5.4.*",
+        "symfony/web-profiler-bundle": "5.4.*"
     },
     "config": {
         "allow-plugins": {
