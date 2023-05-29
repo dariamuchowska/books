@@ -50,6 +50,26 @@
         <source>action.back_to_list</source>
         <target>Back to list</target>
       </trans-unit>
+      <trans-unit id="label.category">
+         <source>label.category</source>
+         <target>Category</target>
+      </trans-unit>
+      <trans-unit id="title.book_category_list">
+          <source>title.book_category_list</source>
+          <target>Book Category List</target>
+      </trans-unit>
+      <trans-unit id="title.book_category_details">
+          <source>title.book_category_details</source>
+          <target>Book category details #%id%</target>
+      </trans-unit>
+      <trans-unit id="title.show_category_list">
+          <source>title.show_category_list</source>
+          <target>Show the list of categories</target>
+      </trans-unit>
+      <trans-unit id="title.show_book_list">
+          <source>title.show_book_list</source>
+          <target>Show the list of books</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

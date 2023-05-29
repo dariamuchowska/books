@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.book_list'|trans }}
+    {{ 'title.book_category_list'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.book_list'|trans }}</h1>
-
+    <h1>{{ 'title.book_category_list'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center">
@@ -16,22 +15,18 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'book.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'book.title') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.blurb'|trans, 'book.blurb') }}</th>
-                <th>{{ 'label.category'|trans }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'category.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.category'|trans, 'category.name') }}</th>
                 <th>{{ 'label.actions'|trans }}</th>
             </tr>
             </thead>
             <tbody>
-            {% for book in pagination.items %}
+            {% for category in pagination.items %}
                 <tr>
-                    <td>{{ book.id }}</td>
-                    <td>{{ book.name }}</td>
-                    <td>{{ book.blurb }}</td>
-                    <td>{{ book.category.name }}</td>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
                     <td>
-                        <a href="{{ url('book_show', {id: book.id}) }}" title="{{ 'action.show'|trans }}">
+                        <a href="{{ url('category_show', {id: category.id}) }}" title="{{ 'action.show'|trans }}">
                             {{ 'action.show'|trans }}
                         </a>
                     </td>
@@ -50,8 +45,8 @@
         </p>
     {% endif %}
 
-    <h2>{{ 'title.show_category_list'|trans }}</h2>
-        <a href="{{ url('category_index') }}" title="{{ 'action.show'|trans }}">
+    <h2>{{ 'title.show_book_list'|trans }}</h2>
+        <a href="{{ url('book_index') }}" title="{{ 'action.show'|trans }}">
             {{ 'action.show'|trans }}
 
 {% endblock %}
