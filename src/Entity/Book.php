@@ -45,6 +45,15 @@ class Book
     private ?string $blurb = null;
 
     /**
+     * Category.
+     *
+     * @var Category
+     */
+    #[ORM\ManyToOne(targetEntity: Category::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $category = null;
+
+    /**
      * Getter for ID.
      *
      * @return int|null
@@ -92,5 +101,25 @@ class Book
     public function setBlurb(?string $blurb): void
     {
         $this->blurb = $blurb;
+    }
+
+    /**
+     * Getter for Category.
+     *
+     * @return Category|null
+     */
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    /**
+     * Setter for Category.
+     *
+     * @param Category|null $category
+     */
+    public function setCategory(?Category $category): void
+    {
+        $this->category = $category;
     }
 }

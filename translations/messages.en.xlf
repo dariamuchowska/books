@@ -11,7 +11,7 @@
         <target>Id</target>
       </trans-unit>
       <trans-unit id="label.title">
-        <source>label.name</source>
+        <source>label.title</source>
         <target>Title</target>
       </trans-unit>
       <trans-unit id="label.blurb">
