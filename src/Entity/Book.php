@@ -25,7 +25,7 @@ class Book
      *
      * @ORM\ManyToMany(
      *     targetEntity="App\Entity\Tag",
-     *     inversedBy="tasks",
+     *     inversedBy="books",
      *     fetch="EXTRA_LAZY",
      * )
      * @ORM\JoinTable(name="tasks_tags")

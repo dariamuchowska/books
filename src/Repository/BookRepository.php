@@ -41,11 +41,13 @@ class BookRepository extends ServiceEntityRepository
     /**
      * Query all records.
      *
-     * @return QueryBuilder Query builder
+     * @return \Doctrine\ORM\QueryBuilder Query builder
      */
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
+            ->select('book', 'category')
+            ->join('book.category', 'category')
             ->orderBy('book.id', 'ASC');
     }
 
