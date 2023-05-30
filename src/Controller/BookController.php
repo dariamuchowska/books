@@ -1,6 +1,6 @@
 <?php
 /**
- * Task controller.
+ * Book controller.
  */
 
 namespace App\Controller;

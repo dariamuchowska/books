@@ -62,6 +62,22 @@
            <source>title.categories</source>
            <target>Categories</target>
       </trans-unit>
+      <trans-unit id="title.category_create">
+           <source>title.category_create</source>
+           <target>Add a category</target>
+      </trans-unit>
+      <trans-unit id="label.name">
+           <source>label.name</source>
+           <target>Name</target>
+      </trans-unit>
+      <trans-unit id="action.save">
+           <source>action.save</source>
+           <target>Save</target>
+      </trans-unit>
+      <trans-unit id="message.created_successfully">
+           <source>message.created_successfully</source>
+           <target>New category created successfully!</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -62,6 +62,22 @@
           <source>title.categories</source>
           <target>Gatunki</target>
       </trans-unit>
+      <trans-unit id="title.category_create">
+          <source>title.category_create</source>
+          <target>Dodaj gatunek</target>
+      </trans-unit>
+      <trans-unit id="label.name">
+          <source>label.name</source>
+          <target>Nazwa</target>
+     </trans-unit>
+     <trans-unit id="action.save">
+          <source>action.save</source>
+          <target>Zapisz</target>
+     </trans-unit>
+     <trans-unit id="message.created_successfully">
+          <source>message.created_successfully</source>
+          <target>Nowy gatunek dodany!</target>
+     </trans-unit>
     </body>
   </file>
 </xliff>
