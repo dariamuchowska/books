@@ -30,14 +30,6 @@
         <source>message.record_not_found</source>
         <target>Nie znaleziono rekordu.</target>
       </trans-unit>
-      <trans-unit id="title.record_list">
-        <source>title.record_list</source>
-        <target>Lista rekordów</target>
-      </trans-unit>
-      <trans-unit id="title.record_view">
-        <source>title.record_view</source>
-        <target>Rekord #%id%</target>
-      </trans-unit>
       <trans-unit id="title.book_details">
          <source>title.book_details</source>
          <target>Informacje o książce #%id%</target>
@@ -62,13 +54,13 @@
           <source>title.book_category_details</source>
           <target>Informacje o kategorii #%id%</target>
       </trans-unit>
-      <trans-unit id="title.show_category_list">
-          <source>title.show_category_list</source>
-          <target>Przejdź do listy kategorii</target>
+      <trans-unit id="title.books">
+          <source>title.books</source>
+          <target>Książki</target>
       </trans-unit>
-      <trans-unit id="title.show_book_list">
-          <source>title.show_book_list</source>
-          <target>Przejdź do listy książek</target>
+      <trans-unit id="title.categories">
+          <source>title.categories</source>
+          <target>Gatunki</target>
       </trans-unit>
     </body>
   </file>
