@@ -12,6 +12,7 @@
         "doctrine/orm": "^2.14",
         "knplabs/knp-paginator-bundle": "5.9",
         "sensio/framework-extra-bundle": "^6.2",
+        "stof/doctrine-extensions-bundle": "^1.7",
         "symfony/asset": "5.4.*",
         "symfony/console": "5.4.*",
         "symfony/doctrine-bridge": "5.4.*",
@@ -85,7 +86,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": "true",
             "require": "5.4.*"
         }
     }

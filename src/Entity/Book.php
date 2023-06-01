@@ -19,22 +19,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Book
 {
     /**
-     * Tags.
-     *
-     * @var array
-     *
-     * @ORM\ManyToMany(
-     *     targetEntity="App\Entity\Tag",
-     *     inversedBy="books",
-     *     fetch="EXTRA_LAZY",
-     * )
-     * @ORM\JoinTable(name="tasks_tags")
-     *
-     * @Assert\Type(type="Doctrine\Common\Collections\Collection")
-     */
-    private $tags;
-
-    /**
      * Primary key.
      *
      * @var int|null

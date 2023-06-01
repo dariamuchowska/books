@@ -30,6 +30,18 @@
                             {{ 'action.show'|trans }}
                         </a>
                     </td>
+                    <td>
+                        <a href="{{ url('category_create', {id: category.id}) }}" title="{{ 'action.create'|trans }}">
+                        {{ 'action.create'|trans }}
+                    </td>
+                    <td>
+                        <a href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action.edit'|trans }}">
+                        {{ 'action.edit'|trans }}
+                    </td>
+                    <td>
+                        <a href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'action.delete'|trans }}
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -41,7 +53,10 @@
 
     {% else %}
         <p>
-            {{ 'message.empty_list'|trans }}
+            {% include 'default/_single_alert_message.html.twig' with {
+                type: 'warning',
+                message: 'message.empty_list'|trans
+            } %}
         </p>
     {% endif %}
 

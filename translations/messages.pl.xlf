@@ -78,6 +78,26 @@
           <source>message.created_successfully</source>
           <target>Nowy gatunek dodany!</target>
      </trans-unit>
+     <trans-unit id="action.create">
+          <source>action.create</source>
+          <target>Dodaj</target>
+     </trans-unit>
+     <trans-unit id="action.edit">
+          <source>action.edit</source>
+          <target>Edytuj</target>
+     </trans-unit>
+     <trans-unit id="action.delete">
+          <source>action.delete</source>
+          <target>Usuń</target>
+     </trans-unit>
+      <trans-unit id="message.deleted_successfully">
+          <source>message.deleted_successfully</source>
+          <target>Gatunek został usunięty.</target>
+      </trans-unit>
+      <trans-unit id="message.edited_successfully">
+          <source>message.edited_successfully</source>
+          <target>Gatunek został zmieniony z powodzeniem!</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
