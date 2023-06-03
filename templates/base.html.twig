@@ -27,6 +27,18 @@
 </head>
 
 <body>
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <div>{{ app.user.username }}</div>
+    <div>
+        <a href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
+    </div>
+{% else %}
+    <div>
+        <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
+    </div>
+{% endif %}
+
 <main role="main" class="container-fluid">
     {% block body %}{% endblock %}
 </main>

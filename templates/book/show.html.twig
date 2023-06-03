@@ -18,6 +18,15 @@
            <dd>{{  book.category.name }}</dd>
         </dl>
         <p>
+            <a href="{{ url('book_edit', {id: book.id}) }}" title="{{ 'action.edit'|trans }}">
+                {{ 'action.edit'|trans }}
+            </a>
+        </p>
+            <a href="{{ url('book_delete', {id: book.id}) }}" title="{{ 'action.delete'|trans }}">
+                {{ 'action.delete'|trans }}
+            </a>
+        </p>
+        <p>
             <a href="{{ url('book_index') }}" title="{{ 'action.back_to_list'|trans }}">
                 {{ 'action.back_to_list'|trans }}
             </a>

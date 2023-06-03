@@ -1,19 +1,22 @@
 <?php
+/**
+ * Category entity.
+ */
 
 namespace App\Entity;
 
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Class Category.
- *
- * @psalm-suppress MissingConstructor
  */
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\Table(name: 'categories')]
-#[ORM\UniqueConstraint(name: 'uq_categories_title', columns: ['name'])]
 #[UniqueEntity(fields: ['name'])]
 class Category
 {
@@ -33,7 +36,10 @@ class Category
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 100)]
-    private ?string $name = null;
+    #[Assert\Type('string')]
+    #[Assert\NotBlank]
+    #[Assert\Length(min: 3, max: 100)]
+    private ?string $name;
 
     /**
      * Slug.
@@ -41,6 +47,8 @@ class Category
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 100)]
+    #[Assert\Type('string')]
+    #[Assert\Length(min: 3, max: 100)]
     #[Gedmo\Slug(fields: ['name'])]
     private ?string $slug;
 

@@ -98,6 +98,14 @@
           <source>message.edited_successfully</source>
           <target>The category has been edited successfully!</target>
       </trans-unit>
+      <trans-unit id="action.logout">
+          <source>action.logout</source>
+          <target>Log out</target>
+      </trans-unit>
+      <trans-unit id="action.login">
+          <source>action.login</source>
+          <target>Log in</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

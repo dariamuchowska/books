@@ -1,20 +1,22 @@
 <?php
 /**
- * Category type.
+ * Book Type.
  */
 
 namespace App\Form;
 
 use App\Entity\Category;
+use App\Entity\Book;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class CategoryType.
+ * Class BookType.
  */
-class CategoryType extends AbstractType
+class BookType extends AbstractType
 {
     /**
      * Builds the form.
@@ -35,7 +37,20 @@ class CategoryType extends AbstractType
             [
                 'label' => 'label.name',
                 'required' => true,
-                'attr' => ['max_length' => 64],
+                'attr' => ['max_length' => 100],
+            ]
+        );
+        $builder->add(
+            'category',
+            EntityType::class,
+            [
+                'class' => Category::class,
+                'choice_label' => function ($category): string {
+                    return $category->getName();
+                },
+                'label' => 'label.category',
+                'placeholder' => 'label.none',
+                'required' => true,
             ]
         );
     }
@@ -47,7 +62,7 @@ class CategoryType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults(['data_class' => Category::class]);
+        $resolver->setDefaults(['data_class' => Book::class]);
     }
 
     /**
@@ -60,6 +75,7 @@ class CategoryType extends AbstractType
      */
     public function getBlockPrefix(): string
     {
-        return 'category';
+        return 'book';
     }
+
 }

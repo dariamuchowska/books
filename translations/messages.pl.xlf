@@ -98,6 +98,14 @@
           <source>message.edited_successfully</source>
           <target>Gatunek został zmieniony z powodzeniem!</target>
       </trans-unit>
+      <trans-unit id="action.logout">
+          <source>action.logout</source>
+          <target>Wyloguj</target>
+      </trans-unit>
+      <trans-unit id="action.login">
+          <source>action.login</source>
+          <target>Zaloguj</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
