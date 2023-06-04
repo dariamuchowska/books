@@ -106,6 +106,30 @@
           <source>action.login</source>
           <target>Zaloguj</target>
       </trans-unit>
+      <trans-unit id="title.login">
+          <source>title.login</source>
+          <target>Zaloguj się do swojego konta:</target>
+      </trans-unit>
+      <trans-unit id="label.password_req">
+          <source>label.password_req</source>
+          <target>Nowe hasło:</target>
+      </trans-unit>
+      <trans-unit id="label.repeatedPassword_req">
+          <source>label.repeatedPassword_req</source>
+          <target>Powtórz nowe hasło:</target>
+      </trans-unit>
+      <trans-unit id="action.password_change">
+          <source>action.password_change</source>
+          <target>Zmień hasło</target>
+      </trans-unit>
+      <trans-unit id="message.pass_changed_successfully">
+          <source>message.pass_changed_successfully</source>
+          <target>Hasło zostało zmienione</target>
+      </trans-unit>
+      <trans-unit id="label.author">
+          <source>label.author</source>
+          <target>Autor</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

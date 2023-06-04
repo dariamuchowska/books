@@ -1,18 +1,17 @@
 <?php
 /**
- * Book service interface.
+ * User service interface.
  */
 
 namespace App\Service;
 
-use App\Entity\Book;
 use App\Entity\User;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
- * Interface BookServiceInterface.
+ * Interface UserServiceInterface.
  */
-interface BookServiceInterface
+interface UserServiceInterface
 {
     /**
      * Get paginated list.
@@ -24,17 +23,25 @@ interface BookServiceInterface
     public function getPaginatedList(int $page): PaginationInterface;
 
     /**
+     * Can User be deleted?
+     *
+     * @param User $user User entity
+     *
+     * @return bool Result
+     */
+    public function canBeDeleted(User $user): bool;
+
+    /**
      * Save entity.
      *
-     * @param Book $book Book entity
+     * @param User $user User entity
      */
-    public function save(Book $book): void;
+    public function save(User $user): void;
 
     /**
      * Delete entity.
      *
-     * @param Book $book Book entity
+     * @param User $user User entity
      */
-    public function delete(Book $book): void;
-
+    public function delete(User $user): void;
 }

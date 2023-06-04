@@ -14,8 +14,10 @@
             <dd>{{ book.name }}</dd>
             <dt>{{ 'label.blurb'|trans }}</dt>
             <dd>{{ book.blurb }}</dd>
-           <dt>{{ 'label.category'|trans }}</dt>
-           <dd>{{  book.category.name }}</dd>
+            <dt>{{ 'label.category'|trans }}</dt>
+            <dd>{{  book.category.name }}</dd>
+            <dt>{{ 'label.author'|trans }}</dt>
+            <dd>{{ book.author }}</dd>
         </dl>
         <p>
             <a href="{{ url('book_edit', {id: book.id}) }}" title="{{ 'action.edit'|trans }}">
