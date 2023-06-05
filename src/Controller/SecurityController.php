@@ -83,7 +83,6 @@ class SecurityController extends AbstractController
      * @param UserPasswordHasherInterface $passwordHasher Password hasher
      *
      * @return Response HTTP Response
-     *
      */
     #[Route(
         '/user/{id}/password_change',
@@ -113,7 +112,7 @@ class SecurityController extends AbstractController
         }
 
         return $this->render(
-            'security/password_change.html.twig',
+            'security/passwordchange.html.twig',
             [
                 'form' => $form->createView(),
                 'user' => $user,
