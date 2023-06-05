@@ -130,6 +130,14 @@
           <source>label.author</source>
           <target>Author</target>
       </trans-unit>
+      <trans-unit id="message.form_error">
+          <source>message.form_error</source>
+          <target>The password should be the same in both fields. Try again.</target>
+      </trans-unit>
+      <trans-unit id="title.user">
+          <source>title.user</source>
+          <target>User</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

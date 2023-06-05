@@ -29,6 +29,8 @@ class SecurityController extends AbstractController
 
     /**
      * Translator.
+     *
+     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
@@ -109,6 +111,8 @@ class SecurityController extends AbstractController
                 'success',
                 $this->translator->trans('message.pass_changed_successfully')
             );
+
+            return $this->redirectToRoute('book_index');
         }
 
         return $this->render(

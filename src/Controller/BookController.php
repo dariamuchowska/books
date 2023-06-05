@@ -75,7 +75,6 @@ class BookController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET'
     )]
-    #[IsGranted('VIEW', subject: 'book')]
     public function show(Book $book): Response
     {
         return $this->render('book/show.html.twig', ['book' => $book]);

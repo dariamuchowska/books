@@ -25,13 +25,6 @@ class BookVoter extends Voter
     public const EDIT = 'EDIT';
 
     /**
-     * View permission.
-     *
-     * @const string
-     */
-    public const VIEW = 'VIEW';
-
-    /**
      * Delete permission.
      *
      * @const string
@@ -65,7 +58,7 @@ class BookVoter extends Voter
      */
     protected function supports(string $attribute, $subject): bool
     {
-        return in_array($attribute, [self::EDIT, self::VIEW, self::DELETE])
+        return in_array($attribute, [self::EDIT, self::DELETE])
             && $subject instanceof Book;
     }
 
@@ -89,8 +82,6 @@ class BookVoter extends Voter
         switch ($attribute) {
             case self::EDIT:
                 return $this->canEdit($subject, $user);
-            case self::VIEW:
-                return $this->canView($subject, $user);
             case self::DELETE:
                 return $this->canDelete($subject, $user);
         }
@@ -99,9 +90,9 @@ class BookVoter extends Voter
     }
 
     /**
-     * Checks if user can edit task.
+     * Checks if user can edit comment.
      *
-     * @param Book $book Task entity
+     * @param Book $book Comment entity
      * @param User $user User
      *
      * @return bool Result
@@ -112,22 +103,9 @@ class BookVoter extends Voter
     }
 
     /**
-     * Checks if user can view task.
+     * Checks if user can delete comment.
      *
-     * @param Book $book Task entity
-     * @param User $user User
-     *
-     * @return bool Result
-     */
-    private function canView(Book $book, User $user): bool
-    {
-        return $book->getAuthor() === $user;
-    }
-
-    /**
-     * Checks if user can delete task.
-     *
-     * @param Book $book Task entity
+     * @param Book $book Comment entity
      * @param User $user User
      *
      * @return bool Result

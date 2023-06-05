@@ -20,13 +20,17 @@
             <dd>{{ book.author }}</dd>
         </dl>
         <p>
-            <a href="{{ url('book_edit', {id: book.id}) }}" title="{{ 'action.edit'|trans }}">
-                {{ 'action.edit'|trans }}
-            </a>
+            {% if is_granted('EDIT', book) %}
+                <a href="{{ url('book_edit', {id: book.id}) }}" title="{{ 'action.edit'|trans }}">
+                    {{ 'action.edit'|trans }}
+                </a>
+            {% endif %}
         </p>
-            <a href="{{ url('book_delete', {id: book.id}) }}" title="{{ 'action.delete'|trans }}">
-                {{ 'action.delete'|trans }}
-            </a>
+            {% if is_granted('DELETE', book) %}
+                <a href="{{ url('book_delete', {id: book.id}) }}" title="{{ 'action.delete'|trans }}">
+                    {{ 'action.delete'|trans }}
+                </a>
+            {% endif %}
         </p>
         <p>
             <a href="{{ url('book_index') }}" title="{{ 'action.back_to_list'|trans }}">

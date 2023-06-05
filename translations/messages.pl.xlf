@@ -130,6 +130,14 @@
           <source>label.author</source>
           <target>Autor</target>
       </trans-unit>
+      <trans-unit id="message.form_error">
+          <source>message.form_error</source>
+          <target>Hasło powinno być takie samo w obu polach. Spróbuj ponownie.</target>
+      </trans-unit>
+      <trans-unit id="title.user">
+          <source>title.user</source>
+          <target>Użytkownik</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
