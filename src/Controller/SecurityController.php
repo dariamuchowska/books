@@ -6,7 +6,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\UserRepository;
 use App\Form\PasswordChangeType;
+use App\Form\RegistrationFormType;
 use App\Service\UserService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -121,6 +123,43 @@ class SecurityController extends AbstractController
                 'form' => $form->createView(),
                 'user' => $user,
             ]
+        );
+    }
+
+    /**
+     * Register action.
+     *
+     * @param Request                     $request        HTTP Request
+     * @param UserPasswordHasherInterface $passwordHasher Password hasher
+     * @param UserRepository              $userRepository User repository
+     *
+     * @return Response HTTP Response
+     *
+     * @Route("/register", methods={"GET", "POST"}, name="app_register")
+     */
+    public function register(Request $request, UserPasswordHasherInterface $passwordHasher, UserRepository $userRepository): Response
+    {
+        $user = new User();
+
+        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
+            $user->setRoles([User::ROLE_USER]);
+            $userRepository->save($user);
+
+            $this->addFlash(
+                'success',
+                $this->translator->trans('message.registered_successfully')
+            );
+
+            return $this->redirectToRoute('book_index');
+        }
+
+        return $this->render(
+            'security/register.html.twig',
+            ['form' => $form->createView()]
         );
     }
 }

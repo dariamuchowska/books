@@ -15,13 +15,17 @@
         </dl>
 
         <p>
-            <a href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action.edit'|trans }}">
-                {{ 'action.edit'|trans }}
-            </a>
+            {% if is_granted('EDIT', category) %}
+                <a href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action.edit'|trans }}">
+                   {{ 'action.edit'|trans }}
+                </a>
+                {% endif %}
         </p>
-            <a href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action.delete'|trans }}">
-                {{ 'action.delete'|trans }}
-            </a>
+            {% if is_granted('DELETE', category) %}
+                <a href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action.delete'|trans }}">
+                    {{ 'action.delete'|trans }}
+                </a>
+            {% endif %}
         </p>
         <p>
             <a href="{{ url('category_index') }}" title="{{ 'action.back_to_list'|trans }}">

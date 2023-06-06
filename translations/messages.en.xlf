@@ -2,6 +2,10 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="file.ext">
     <body>
+      <trans-unit id="label.none">
+        <source>label.none</source>
+        <target>None</target>
+      </trans-unit>
       <trans-unit id="label.actions">
         <source>label.actions</source>
         <target>Actions</target>
@@ -90,6 +94,10 @@
           <source>action.delete</source>
           <target>Delete</target>
       </trans-unit>
+      <trans-unit id="title.book_delete">
+          <source>title.book_delete</source>
+          <target>Are you sure you want to delete the book?</target>
+      </trans-unit>
       <trans-unit id="message.deleted_successfully">
           <source>message.deleted_successfully</source>
           <target>The category has been deleted.</target>
@@ -110,13 +118,21 @@
           <source>title.login</source>
           <target>Log into your account:</target>
       </trans-unit>
+      <trans-unit id="label.password">
+          <source>label.password</source>
+          <target>Password</target>
+      </trans-unit>
+      <trans-unit id="label.repeatedPassword">
+          <source>label.repeatedPassword</source>
+          <target>Repeated password</target>
+      </trans-unit>
       <trans-unit id="label.password_req">
           <source>label.password_req</source>
-          <target>New password:</target>
+          <target>Password:</target>
       </trans-unit>
       <trans-unit id="label.repeatedPassword_req">
           <source>label.repeatedPassword_req</source>
-          <target>Repeat the new password:</target>
+          <target>Repeat the password:</target>
       </trans-unit>
       <trans-unit id="action.password_change">
           <source>action.password_change</source>
@@ -137,6 +153,26 @@
       <trans-unit id="title.user">
           <source>title.user</source>
           <target>User</target>
+      </trans-unit>
+      <trans-unit id="label.register">
+          <source>label.register</source>
+          <target>Register</target>
+      </trans-unit>
+      <trans-unit id="label.email_req">
+          <source>label.email_req</source>
+          <target>E-mail:</target>
+      </trans-unit>
+      <trans-unit id="label.have">
+          <source>label.have</source>
+          <target>Already have an account? Log in here:</target>
+      </trans-unit>
+      <trans-unit id="action.register">
+          <source>action.register</source>
+          <target>Register</target>
+      </trans-unit>
+      <trans-unit id="label.dontHave">
+          <source>label.dontHave</source>
+          <target>Don't have an account? Register here:</target>
       </trans-unit>
     </body>
   </file>

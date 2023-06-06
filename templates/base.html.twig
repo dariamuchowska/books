@@ -42,12 +42,6 @@
 
 <body>
 
-{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-    <div>
-        <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
-    </div>
-{% endif %}
-
 <main role="main" class="container-fluid">
     {% block body %}{% endblock %}
 </main>

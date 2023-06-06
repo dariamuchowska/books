@@ -1,11 +1,11 @@
 <?php
 /**
- * Book voter.
+ * Category voter.
  */
 
 namespace App\Security\Voter;
 
-use App\Entity\Book;
+use App\Entity\Category;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
@@ -13,16 +13,24 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Class BookVoter.
+ * Class CategoryVoter.
  */
-class BookVoter extends Voter
+class CategoryVoter extends Voter
 {
+    /**
+     * Add permission.
+     *
+     * @const string
+     */
+    public const ADD = 'ADD';
+
     /**
      * Edit permission.
      *
      * @const string
      */
     public const EDIT = 'EDIT';
+
 
     /**
      * Delete permission.
@@ -58,8 +66,8 @@ class BookVoter extends Voter
      */
     protected function supports(string $attribute, $subject): bool
     {
-        return in_array($attribute, [self::EDIT, self::DELETE])
-            && $subject instanceof Book;
+        return in_array($attribute, [self::ADD, self::EDIT, self::DELETE])
+            && $subject instanceof Category;
     }
 
     /**
@@ -82,39 +90,7 @@ class BookVoter extends Voter
             return true;
         }
 
-        switch ($attribute) {
-            case self::EDIT:
-                return $this->canEdit($subject, $user);
-            case self::DELETE:
-                return $this->canDelete($subject, $user);
-        }
-
         return false;
     }
 
-    /**
-     * Checks if user can edit comment.
-     *
-     * @param Book $book Comment entity
-     * @param User $user User
-     *
-     * @return bool Result
-     */
-    private function canEdit(Book $book, User $user): bool
-    {
-        return $book->getAuthor() === $user;
-    }
-
-    /**
-     * Checks if user can delete comment.
-     *
-     * @param Book $book Comment entity
-     * @param User $user User
-     *
-     * @return bool Result
-     */
-    private function canDelete(Book $book, User $user): bool
-    {
-        return $book->getAuthor() === $user;
-    }
 }

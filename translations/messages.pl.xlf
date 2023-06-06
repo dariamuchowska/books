@@ -2,6 +2,10 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="file.ext">
     <body>
+      <trans-unit id="label.none">
+        <source>label.none</source>
+        <target>Brak</target>
+      </trans-unit>
       <trans-unit id="label.actions">
         <source>label.actions</source>
         <target>Akcje</target>
@@ -90,6 +94,10 @@
           <source>action.delete</source>
           <target>Usuń</target>
      </trans-unit>
+     <trans-unit id="title.book_delete">
+          <source>title.book_delete</source>
+          <target>Czy na pewno chcesz usunąć książkę?</target>
+      </trans-unit>
       <trans-unit id="message.deleted_successfully">
           <source>message.deleted_successfully</source>
           <target>Gatunek został usunięty.</target>
@@ -109,6 +117,14 @@
       <trans-unit id="title.login">
           <source>title.login</source>
           <target>Zaloguj się do swojego konta:</target>
+      </trans-unit>
+      <trans-unit id="label.password">
+          <source>label.password</source>
+          <target>Hasło</target>
+      </trans-unit>
+      <trans-unit id="label.repeatedPassword">
+          <source>label.repeatedPassword</source>
+          <target>Powtórz hasło</target>
       </trans-unit>
       <trans-unit id="label.password_req">
           <source>label.password_req</source>
@@ -137,6 +153,22 @@
       <trans-unit id="title.user">
           <source>title.user</source>
           <target>Użytkownik</target>
+      </trans-unit>
+      <trans-unit id="label.register">
+          <source>label.register</source>
+          <target>Rejestracja</target>
+      </trans-unit>
+      <trans-unit id="label.email_req">
+          <source>label.email_req</source>
+          <target>E-mail:</target>
+      </trans-unit>
+      <trans-unit id="label.have">
+          <source>label.have</source>
+          <target>Masz już konto? Zaloguj się tutaj: </target>
+      </trans-unit>
+      <trans-unit id="action.register">
+          <source>action.register</source>
+          <target>Zarejstruj</target>
       </trans-unit>
     </body>
   </file>

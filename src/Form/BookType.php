@@ -41,6 +41,15 @@ class BookType extends AbstractType
             ]
         );
         $builder->add(
+            'blurb',
+            TextType::class,
+            [
+                'label' => 'label.blurb',
+                'required' => true,
+                'attr' => ['max_length' => 500],
+            ]
+        );
+        $builder->add(
             'category',
             EntityType::class,
             [

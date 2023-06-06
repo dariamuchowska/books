@@ -26,21 +26,30 @@
                     <td>{{ category.id }}</td>
                     <td>{{ category.name }}</td>
                     <td>
-                        <a href="{{ url('category_show', {id: category.id}) }}" title="{{ 'action.show'|trans }}">
+                        <a class="btn btn-outline-primary" href="{{ url('category_show', {id: category.id}) }}" title="{{ 'action.show'|trans }}">
                             {{ 'action.show'|trans }}
                         </a>
                     </td>
                     <td>
-                        <a href="{{ url('category_create', {id: category.id}) }}" title="{{ 'action.create'|trans }}">
-                        {{ 'action.create'|trans }}
+                        {% if is_granted('ADD', category) %}
+                            <a class="btn btn-outline-success" href="{{ url('category_create', {id: category.id}) }}" title="{{ 'action.create'|trans }}">
+                                {{ 'action.create'|trans }}
+                            </a>
+                        {% endif %}
                     </td>
                     <td>
-                        <a href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action.edit'|trans }}">
-                        {{ 'action.edit'|trans }}
+                        {% if is_granted('EDIT', category) %}
+                            <a class="btn btn-outline-success" href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action.edit'|trans }}">
+                                {{ 'action.edit'|trans }}
+                            </a>
+                        {% endif %}
                     </td>
                     <td>
-                        <a href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action.delete'|trans }}">
-                            {{ 'action.delete'|trans }}
+                        {% if is_granted('DELETE', category) %}
+                            <a class="btn btn-outline-danger" href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action.delete'|trans }}">
+                                {{ 'action.delete'|trans }}
+                            </a>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
