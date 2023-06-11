@@ -32,5 +32,12 @@ parameters:
             </a>
         </div>
     {% endif %}
+    {% if back_to_account_path|default(false) %}
+        <div class="form-group row float-sm-left">
+            <a href="{{ url(back_to_account_path, {id: user.id}) }}" class="btn btn-link">
+                {{ 'action.back_to_account'|trans }}
+            </a>
+        </div>
+    {% endif %}
     {{ form_end(form) }}
 {% endblock %}

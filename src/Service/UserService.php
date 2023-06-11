@@ -72,7 +72,7 @@ class UserService implements UserServiceInterface
     public function canBeDeleted(User $user): bool
     {
         try {
-            $result = $this->bookRepository->countByUser($user);
+            $result = $this->bookRepository->countByAuthor($user);
 
             return !($result > 0);
         } catch (NoResultException|NonUniqueResultException $ex) {

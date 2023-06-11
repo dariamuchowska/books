@@ -148,7 +148,7 @@
       </trans-unit>
       <trans-unit id="message.form_error">
           <source>message.form_error</source>
-          <target>The password should be the same in both fields. Try again.</target>
+          <target>Invalid data, try again</target>
       </trans-unit>
       <trans-unit id="title.user">
           <source>title.user</source>
@@ -160,7 +160,7 @@
       </trans-unit>
       <trans-unit id="label.email_req">
           <source>label.email_req</source>
-          <target>E-mail:</target>
+          <target>E-mail</target>
       </trans-unit>
       <trans-unit id="label.have">
           <source>label.have</source>
@@ -173,6 +173,46 @@
       <trans-unit id="label.dontHave">
           <source>label.dontHave</source>
           <target>Don't have an account? Register here:</target>
+      </trans-unit>
+      <trans-unit id="title.category_edit">
+         <source>title.category_edit</source>
+         <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="title.email_edit">
+         <source>title.email_edit</source>
+         <target>Edit your email address</target>
+      </trans-unit>
+      <trans-unit id="label.email">
+          <source>label.email</source>
+          <target>Email</target>
+      </trans-unit>
+      <trans-unit id="action.account">
+          <source>action.account</source>
+          <target>My account</target>
+      </trans-unit>
+      <trans-unit id="title.account">
+          <source>title.account</source>
+          <target>My account</target>
+      </trans-unit>
+      <trans-unit id="title.record_list_user">
+          <source>title.record_list_user</source>
+          <target>Users</target>
+      </trans-unit>
+      <trans-unit id="title.record_details_user">
+          <source>title.record_details_user</source>
+          <target>User details</target>
+      </trans-unit>
+      <trans-unit id="action.back_to_account">
+          <source>action.back_to_account</source>
+          <target>Back to account</target>
+      </trans-unit>
+      <trans-unit id="title.users">
+          <source>title.users</source>
+          <target>Users</target>
+      </trans-unit>
+      <trans-unit id="title.user_delete">
+          <source>title.user_delete</source>
+          <target>Delete user </target>
       </trans-unit>
     </body>
   </file>

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.record_details_user'|trans({'%email%': user.email|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-center" id="show">
+    <div class="row col-8">
+        <h1 class="h1 font-weigh-normal">{{ 'title.record_details_user'|trans({'%email%': user.email|default('')}) }}</h1>
+        {% if user is defined and user|length %}
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <div class="roow">
+                        <dt>{{ 'label.email'|trans }}</dt>
+                        <dd>{{ user.email }}</dd>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <a role="button" class="btn btn-outline-secondary" href="{{ url('user_edit', {id: user.id}) }}" title="{{ 'action.edit'|trans }}">
+                        {{ 'action.edit'|trans }}
+                    </a>
+                    {% if is_granted('PASSWORD', user) %}
+                        <a role="button" class="btn btn-outline-secondary" href="{{ url('app_change-password', {id: app.user.id}) }}" title="{{ 'action.password_change'|trans }}">{{ 'action.password_change'|trans }}</a>
+                    {% endif %}
+                </div>
+                {#                <div class="row d-flex justify-content-left">#}
+                {#                    <div class="col-2">#}
+                {#                        <a role="button" id="view-btn" class="btn btn-secondary" href="{{ url('my_inputs') }}" title="{{ 'label.my_inputs'|trans }}">{{ 'label.my_inputs'|trans }}</a>#}
+                {#                    </div>#}
+                {#                </div>#}
+            </div>
+        {% else %}
+            <p>
+                {{ 'message.user_not_found'|trans }}
+            </p>
+        {% endif %}</div>
+{% endblock %}

@@ -59,11 +59,10 @@
             {% endfor %}
             </tbody>
         </table>
-
+        <!-- Pagination -->
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}
         </div>
-
     {% else %}
         <p>
             {% include 'default/_single_alert_message.html.twig' with {

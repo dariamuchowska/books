@@ -1,0 +1,7 @@
+{% include 'default/_form.html.twig' with {
+    page_title: 'title.email_edit'|trans,
+    page_title_param: {'%id%': user.id},
+    form: form,
+    submit_label: 'action.save'|trans,
+    back_to_account_path: 'user_account',
+} %}

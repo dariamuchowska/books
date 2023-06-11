@@ -15,11 +15,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('category_index') }}">{{ 'title.categories'|trans }}</a>
             </li>
+            {% if is_granted('ROLE_ADMIN', app.user) %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('user_index') }}">{{ 'title.users'|trans }}</a>
+            </li>
+            {% endif %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ 'title.user'|trans }}: {{ app.user.username }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{{ url('user_account', {id: app.user.id}) }}">{{ 'action.account'|trans }}</a>
                     <a class="dropdown-item" href="{{ url('app_change-password', {id: app.user.id}) }}">{{ 'action.password_change'|trans }}</a>
                     <a class="dropdown-item" href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
                 </div>

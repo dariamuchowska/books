@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.account'|trans({'%id%': user.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-center" id="show">
+    <div class="row col-8">
+        <h1 class="h1 font-weigh-normal">{{ 'title.account'|trans }}</h1>
+        {% if user is defined and user|length %}
+            <div class="row">
+                <div class="col-4">
+                    <div class="roow">
+                        <dt>{{ 'label.email'|trans }}</dt>
+                        <dd>{{ user.email }}</dd>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <a role="button" class="btn btn-outline-secondary" href="{{ url('user_edit', {id: app.user.id}) }}" title="{{ 'action.edit'|trans }}">
+                        {{ 'action.edit'|trans }}
+                    </a>
+                    <a role="button" class="btn btn-outline-secondary" href="{{ url('app_change-password', {id: app.user.id}) }}" title="{{ 'action.password_change'|trans }}">{{ 'action.password_change'|trans }}</a>
+                </div>
+            </div>
+        {% else %}
+            <p>
+                {{ 'message.user_not_found'|trans }}
+            </p>
+        {% endif %}</div>
+{% endblock %}
