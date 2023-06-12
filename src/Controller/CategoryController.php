@@ -9,6 +9,7 @@ use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Service\CategoryServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -68,7 +69,7 @@ class CategoryController extends AbstractController
     /**
      * Show action.
      *
-     * @param Category $category Category
+     * @param Category $category Category entity
      *
      * @return Response HTTP response
      */
@@ -76,7 +77,7 @@ class CategoryController extends AbstractController
         '/{id}',
         name: 'category_show',
         requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET',
+        methods: 'GET'
     )]
     public function show(Category $category): Response
     {
@@ -96,13 +97,17 @@ class CategoryController extends AbstractController
     #[Route(
         '/create',
         name: 'category_create',
-        methods: 'GET|POST',
+        methods: 'GET|POST'
     )]
-    #[IsGranted('ADD', subject: 'category')]
+    #[IsGranted('ROLE_ADMIN')]
     public function create(Request $request): Response
     {
         $category = new Category();
-        $form = $this->createForm(CategoryType::class, $category);
+        $form = $this->createForm(
+            CategoryType::class,
+            $category,
+            ['action' => $this->generateUrl('category_create')]
+        );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -130,7 +135,12 @@ class CategoryController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/{id}/edit', name: 'category_edit', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
+    #[Route(
+        '/{id}/edit',
+        name: 'category_edit',
+        requirements: ['id' => '[1-9]\d*'],
+        methods: 'GET|PUT'
+    )]
     #[IsGranted('EDIT', subject: 'category')]
     public function edit(Request $request, Category $category): Response
     {
@@ -172,8 +182,13 @@ class CategoryController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/{id}/delete', name: 'category_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
-    #[IsGranted('DELETE', subject: 'category')]
+    #[Route(
+        '/{id}/delete',
+        name: 'category_delete',
+        requirements: ['id' => '[1-9]\d*'],
+        methods: 'GET|DELETE'
+    )]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(Request $request, Category $category): Response
     {
         if(!$this->categoryService->canBeDeleted($category)) {

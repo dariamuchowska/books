@@ -52,7 +52,10 @@ class BookController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route(name: 'book_index', methods: 'GET')]
+    #[Route(
+        name: 'book_index',
+        methods: 'GET'
+    )]
     public function index(Request $request): Response
     {
         $pagination = $this->bookService->getPaginatedList(
@@ -77,7 +80,10 @@ class BookController extends AbstractController
     )]
     public function show(Book $book): Response
     {
-        return $this->render('book/show.html.twig', ['book' => $book]);
+        return $this->render(
+            'book/show.html.twig',
+            ['book' => $book]
+        );
     }
 
     /**
@@ -87,7 +93,11 @@ class BookController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/create', name: 'book_create', methods: 'GET|POST')]
+    #[Route(
+        '/create',
+        name: 'book_create',
+        methods: 'GET|POST'
+    )]
     public function create(Request $request): Response
     {
         /** @var User $user */
@@ -126,7 +136,12 @@ class BookController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/{id}/edit', name: 'book_edit', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
+    #[Route(
+        '/{id}/edit',
+        name: 'book_edit',
+        requirements: ['id' => '[1-9]\d*'],
+        methods: 'GET|PUT'
+    )]
     #[IsGranted('EDIT', subject: 'book')]
     public function edit(Request $request, Book $book): Response
     {
@@ -168,7 +183,12 @@ class BookController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/{id}/delete', name: 'book_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
+    #[Route(
+        '/{id}/delete',
+        name: 'book_delete',
+        requirements: ['id' => '[1-9]\d*'],
+        methods: 'GET|DELETE'
+    )]
     #[IsGranted('DELETE', subject: 'book')]
     public function delete(Request $request, Book $book): Response
     {
