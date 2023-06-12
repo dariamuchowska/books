@@ -80,7 +80,7 @@
      </trans-unit>
      <trans-unit id="message.created_successfully">
           <source>message.created_successfully</source>
-          <target>Nowy gatunek dodany!</target>
+          <target>Dodano z powodzeniem!</target>
      </trans-unit>
      <trans-unit id="action.create">
           <source>action.create</source>
@@ -100,11 +100,11 @@
       </trans-unit>
       <trans-unit id="message.deleted_successfully">
           <source>message.deleted_successfully</source>
-          <target>Gatunek został usunięty.</target>
+          <target>Usunięto z powodzeniem!</target>
       </trans-unit>
       <trans-unit id="message.edited_successfully">
           <source>message.edited_successfully</source>
-          <target>Gatunek został zmieniony z powodzeniem!</target>
+          <target>Zmiany zostały wprowadzone z powodzeniem!</target>
       </trans-unit>
       <trans-unit id="action.logout">
           <source>action.logout</source>

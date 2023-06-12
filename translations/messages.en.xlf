@@ -80,7 +80,7 @@
       </trans-unit>
       <trans-unit id="message.created_successfully">
            <source>message.created_successfully</source>
-           <target>New category created successfully!</target>
+           <target>Added successfully!</target>
       </trans-unit>
       <trans-unit id="action.create">
            <source>action.create</source>
@@ -100,11 +100,11 @@
       </trans-unit>
       <trans-unit id="message.deleted_successfully">
           <source>message.deleted_successfully</source>
-          <target>The category has been deleted.</target>
+          <target>Deleted successfully!</target>
       </trans-unit>
       <trans-unit id="message.edited_successfully">
           <source>message.edited_successfully</source>
-          <target>The category has been edited successfully!</target>
+          <target>Edited successfully!</target>
       </trans-unit>
       <trans-unit id="action.logout">
           <source>action.logout</source>

@@ -49,6 +49,7 @@
 <body>
 
 <main role="main" class="container-fluid">
+    {% include 'default/_flash_messages.html.twig' %}
     {% block body %}{% endblock %}
 </main>
 {% block javascripts %}
@@ -65,14 +66,6 @@
             integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
             crossorigin="anonymous"></script>
 {% endblock %}
-
-{% for type, messages in app.session.flashBag.all %}
-    {% for message in messages %}
-        <div class="container-fluid">
-            {% include 'default/_flash_messages.html.twig' %}
-        </div>
-    {% endfor %}
-{% endfor %}
 
 </body>
 
