@@ -226,6 +226,46 @@
           <source>title.book_edit</source>
           <target>Edit this book</target>
       </trans-unit>
+      <trans-unit id="label.created_at">
+          <source>label.created_at</source>
+          <target>Created at</target>
+      </trans-unit>
+      <trans-unit id="label.nick">
+          <source>label.nick</source>
+          <target>Nick</target>
+      </trans-unit>
+      <trans-unit id="label.content">
+          <source>label.content</source>
+          <target>Content</target>
+      </trans-unit>
+      <trans-unit id="label.book">
+          <source>label.book</source>
+          <target>Book</target>
+      </trans-unit>
+      <trans-unit id="label.comment_author">
+          <source>label.comment_author</source>
+          <target>Author's email</target>
+      </trans-unit>
+      <trans-unit id="title.comments_list">
+          <source>title.comments_list</source>
+          <target>Comments list</target>
+      </trans-unit>
+      <trans-unit id="title.comments_details">
+          <source>title.comments_details</source>
+          <target>Comment details</target>
+      </trans-unit>
+      <trans-unit id="title.comments_delete">
+          <source>title.comments_delete</source>
+          <target>Are you sure you want to delete this comment?</target>
+      </trans-unit>
+      <trans-unit id="title.comments_edit">
+          <source>title.comments_edit</source>
+          <target>Edit comment</target>
+      </trans-unit>
+      <trans-unit id="title.comments">
+          <source>title.comments</source>
+          <target>Comments</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

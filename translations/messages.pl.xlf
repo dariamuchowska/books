@@ -226,6 +226,46 @@
           <source>title.book_edit</source>
           <target>Edytuj tę książkę</target>
       </trans-unit>
+      <trans-unit id="label.created_at">
+          <source>label.created_at</source>
+          <target>Stworzono</target>
+      </trans-unit>
+      <trans-unit id="label.nick">
+          <source>label.nick</source>
+          <target>Nick</target>
+      </trans-unit>
+      <trans-unit id="label.content">
+          <source>label.content</source>
+          <target>Komentarz</target>
+      </trans-unit>
+      <trans-unit id="label.book">
+          <source>label.book</source>
+          <target>Książka</target>
+      </trans-unit>
+      <trans-unit id="label.comment_author">
+          <source>label.comment_author</source>
+          <target>Email autora</target>
+      </trans-unit>
+      <trans-unit id="title.comments_list">
+          <source>title.comments_list</source>
+          <target>Lista komentarzy</target>
+      </trans-unit>
+      <trans-unit id="title.comments_details">
+          <source>title.comments_details</source>
+          <target>Informacje o komentarzu</target>
+      </trans-unit>
+      <trans-unit id="title.comments_delete">
+          <source>title.comments_delete</source>
+          <target>Na pewno chcesz usunąć ten komentarz?</target>
+      </trans-unit>
+      <trans-unit id="title.comments_edit">
+          <source>title.comments_edit</source>
+          <target>Edytuj komentarz</target>
+      </trans-unit>
+      <trans-unit id="title.comments">
+          <source>title.comments</source>
+          <target>Komentarze</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -15,6 +15,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('category_index') }}">{{ 'title.categories'|trans }}</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('comments_index') }}">{{ 'title.comments'|trans }}</a>
+            </li>
             {% if is_granted('ROLE_ADMIN', app.user) %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('user_index') }}">{{ 'title.users'|trans }}</a>

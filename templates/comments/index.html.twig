@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.comments_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.comments_list'|trans }}</h1>
+
+    {% if pagination is defined and pagination.items|length %}
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'comments.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'comments.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.nick'|trans, 'comments.nick') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.comment_author'|trans, 'comments.author') }}</th
+                <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comments.content') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.book'|trans, 'book.name') }}</th>
+                <th>{{ 'label.actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for comments in pagination.items %}
+                <tr>
+                    <td>{{ comments.id }}</td>
+                    <td>{{ comments.createdAt|date('long') }}</td>
+                    <td>{{ comments.nick }}</td>
+                    <td>{{ comments.author }}</td>
+                    <td>{{ comments.content }}</td>
+                    <td>{{ comments.book.name }}</td>
+                    <td>
+                        <a class="btn btn-outline-primary" href="{{ url('comments_show', {id: comments.id}) }}" title="{{ 'action.show'|trans }}">
+                            {{ 'action.show'|trans }}
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-success" href="{{ url('comments_create', {id: comments.id}) }}" title="{{ 'action.create'|trans }}">
+                            {{ 'action.create'|trans }}
+                    </td>
+                    <td>
+                        {% if is_granted('EDIT', comments) %}
+                            <a class="btn btn-outline-success" href="{{ url('comments_edit', {id: comments.id}) }}" title="{{ 'action.edit'|trans }}">
+                                {{ 'action.edit'|trans }}
+                            </a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if is_granted('DELETE', comments) %}
+                            <a class="btn btn-outline-danger" href="{{ url('comments_delete', {id: comments.id}) }}" title="{{ 'action.delete'|trans }}">
+                                {{ 'action.delete'|trans }}
+                            </a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <!-- Pagination -->
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    {% else %}
+        <p>
+            {% include 'default/_single_alert_message.html.twig' with {
+                type: 'warning',
+                message: 'message.empty_list'|trans
+            } %}
+        </p>
+    {% endif %}
+
+{% endblock %}

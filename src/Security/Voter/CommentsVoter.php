@@ -1,11 +1,8 @@
 <?php
-/**
- * Book voter.
- */
 
 namespace App\Security\Voter;
 
-use App\Entity\Book;
+use App\Entity\Comments;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
@@ -13,9 +10,9 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Class BookVoter.
+ * Class CommentsVoter.
  */
-class BookVoter extends Voter
+class CommentsVoter extends Voter
 {
     /**
      * Edit permission.
@@ -59,7 +56,7 @@ class BookVoter extends Voter
     protected function supports(string $attribute, $subject): bool
     {
         return in_array($attribute, [self::EDIT, self::DELETE])
-            && $subject instanceof Book;
+            && $subject instanceof Comments;
     }
 
     /**
@@ -94,28 +91,41 @@ class BookVoter extends Voter
     }
 
     /**
-     * Checks if user can edit comment.
+     * Checks if user can edit comments.
      *
-     * @param Book $book Comment entity
+     * @param Comments $comments Comments entity
      * @param User $user User
      *
      * @return bool Result
      */
-    private function canEdit(Book $book, User $user): bool
+    private function canEdit(Comments $comments, User $user): bool
     {
-        return $book->getAuthor() === $user;
+        return $comments->getAuthor() === $user;
     }
 
     /**
-     * Checks if user can delete comment.
+     * Checks if user can view comments.
      *
-     * @param Book $book Comment entity
+     * @param Comments $comments Comments entity
      * @param User $user User
      *
      * @return bool Result
      */
-    private function canDelete(Book $book, User $user): bool
+    private function canView(Comments $comments, User $user): bool
     {
-        return $book->getAuthor() === $user;
+        return $comments->getAuthor() === $user;
+    }
+
+    /**
+     * Checks if user can delete comments.
+     *
+     * @param Comments $comments Comments entity
+     * @param User $user User
+     *
+     * @return bool Result
+     */
+    private function canDelete(Comments $comments, User $user): bool
+    {
+        return $comments->getAuthor() === $user;
     }
 }

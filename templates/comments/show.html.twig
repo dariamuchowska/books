@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.comments_details'|trans({'%id%': comments.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.comments_details'|trans({'%id%': comments.id|default('')}) }}</h1>
+    {% if comments is defined and comments|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ comments.id }}</dd>
+            <dt>{{ 'label.created_at'|trans }}</dt>
+            <dd>{{ comments.createdAt|date('long') }}</dd>
+            <dt>{{ 'label.nick'|trans }}</dt>
+            <dd>{{ comments.nick }}</dd>
+            <dt>{{ 'label.comment_author'|trans }}</dt>
+            <dd>{{ comments.author }}</dd>
+            <dt>{{ 'label.content'|trans }}</dt>
+            <dd>{{  comments.content }}</dd>
+            <dt>{{ 'label.book'|trans }}</dt>
+            <dd>{{ comments.book.name }}</dd>
+        </dl>
+        <p>
+            {% if is_granted('EDIT', comments) %}
+                <a href="{{ url('comments_edit', {id: comments.id}) }}" title="{{ 'action.edit'|trans }}">
+                    {{ 'action.edit'|trans }}
+                </a>
+            {% endif %}
+        </p>
+        {% if is_granted('DELETE', comments) %}
+            <a href="{{ url('comments_delete', {id: comments.id}) }}" title="{{ 'action.delete'|trans }}">
+                {{ 'action.delete'|trans }}
+            </a>
+        {% endif %}
+        </p>
+        <p>
+            <a href="{{ url('comments_index') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {% include 'default/_single_alert_message.html.twig' with {
+                type: 'warning',
+                message: 'message.record_not_found'|trans
+            } %}
+        </p>
+    {% endif %}
+{% endblock %}
