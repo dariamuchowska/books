@@ -103,11 +103,8 @@ class CommentsController extends AbstractController
     {
         /** @var User $user */
         $user = $this->getUser();
-        /** @var Book $book */
-        $book = $this->getBook();
         $comments = new Comments();
         $comments->setAuthor($user);
-        $comments->setBook($book);
         $form = $this->createForm(
             CommentsType::class,
             $comments,

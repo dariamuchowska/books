@@ -262,6 +262,10 @@
           <source>title.comments_edit</source>
           <target>Edit comment</target>
       </trans-unit>
+      <trans-unit id="title.comments_create">
+          <source>title.comments_create</source>
+          <target>Add a comment</target>
+      </trans-unit>
       <trans-unit id="title.comments">
           <source>title.comments</source>
           <target>Comments</target>

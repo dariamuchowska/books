@@ -60,6 +60,10 @@ class CommentsService implements CommentsServiceInterface
      */
     public function save(Comments $comments): void
     {
+        if ($comments->getId() == null) {
+            $comments->setCreatedAt(new \DateTimeImmutable());
+        }
+
         $this->commentsRepository->save($comments);
     }
 
