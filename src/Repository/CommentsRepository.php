@@ -101,7 +101,7 @@ class CommentsRepository extends ServiceEntityRepository
      */
     public function delete(Comments $comments): void
     {
-        $this->_em->persist($comments);
+        $this->_em->remove($comments);
         $this->_em->flush();
     }
 
