@@ -48,7 +48,7 @@ class Book
      *
      * @var Category
      */
-    #[ORM\ManyToOne(targetEntity: Category::class)]
+    #[ORM\ManyToOne(targetEntity: Category::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
@@ -64,9 +64,9 @@ class Book
     private ?User $author;
 
     /**
-     * Getter for ID.
+     * Getter for Id.
      *
-     * @return int|null
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -152,5 +152,4 @@ class Book
     {
         $this->author = $author;
     }
-
 }

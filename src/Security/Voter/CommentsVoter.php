@@ -1,4 +1,7 @@
 <?php
+/**
+ * Comments voter.
+ */
 
 namespace App\Security\Voter;
 

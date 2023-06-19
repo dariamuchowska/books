@@ -7,7 +7,6 @@ namespace App\Controller;
 
 use App\Entity\Comments;
 use App\Entity\User;
-use App\Entity\Book;
 use App\Form\CommentsType;
 use App\Service\CommentsServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -179,8 +178,8 @@ class CommentsController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request $request HTTP request
-     * @param Comments    $comments    Comments entity
+     * @param Request  $request  HTTP request
+     * @param Comments $comments Comments entity
      *
      * @return Response HTTP response
      */

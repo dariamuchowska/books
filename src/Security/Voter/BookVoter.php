@@ -94,9 +94,9 @@ class BookVoter extends Voter
     }
 
     /**
-     * Checks if user can edit comment.
+     * Checks if user can edit book.
      *
-     * @param Book $book Comment entity
+     * @param Book $book Book entity
      * @param User $user User
      *
      * @return bool Result
@@ -107,9 +107,9 @@ class BookVoter extends Voter
     }
 
     /**
-     * Checks if user can delete comment.
+     * Checks if user can delete book.
      *
-     * @param Book $book Comment entity
+     * @param Book $book Book entity
      * @param User $user User
      *
      * @return bool Result

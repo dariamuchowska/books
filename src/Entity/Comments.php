@@ -42,7 +42,7 @@ class Comments
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 1000)]
-    private ?string $content;
+    private ?string $content = null;
 
     /**
      * Nick.
@@ -50,7 +50,7 @@ class Comments
      * @var string|null
      */
     #[ORM\Column(type: 'string', length: 255)]
-    private ?string $nick;
+    private ?string $nick = null;
 
     /**
      * Book.
@@ -61,7 +61,7 @@ class Comments
     #[ORM\JoinColumn(nullable: false)]
     #[Assert\NotBlank]
     #[Assert\Type(Book::class)]
-    private ?Book $book;
+    private ?Book $book = null;
 
     /**
      * Author.
