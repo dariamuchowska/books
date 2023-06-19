@@ -270,6 +270,22 @@
           <source>title.comments</source>
           <target>Komentarze</target>
       </trans-unit>
+      <trans-unit id="message.category_contains_books">
+          <source>message.category_contains_books</source>
+          <target>Ten gatunek jest połączony z książkami - nie można usunąć.</target>
+      </trans-unit>
+      <trans-unit id="message.contains_inputs">
+          <source>message.contains_inputs</source>
+          <target>Ten użytkownik posiada książki - nie można usunąć.</target>
+      </trans-unit>
+      <trans-unit id="message.registered_successfully">
+          <source>message.registered_successfully</source>
+          <target>Zarejestrowano!</target>
+      </trans-unit>
+      <trans-unit id="message.book_contains_comments">
+          <source>message.book_contains_comments</source>
+          <target>Ta książka zawiera komentarze - nie można usunąć.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

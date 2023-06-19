@@ -270,6 +270,22 @@
           <source>title.comments</source>
           <target>Comments</target>
       </trans-unit>
+      <trans-unit id="message.category_contains_books">
+          <source>message.category_contains_books</source>
+          <target>This category is connected to some books.</target>
+      </trans-unit>
+      <trans-unit id="message.contains_inputs">
+          <source>message.contains_inputs</source>
+          <target>This user created books - can't be deleted.</target>
+      </trans-unit>
+      <trans-unit id="message.registered_successfully">
+          <source>message.registered_successfully</source>
+          <target>Registered successfully!</target>
+      </trans-unit>
+      <trans-unit id="message.book_contains_comments">
+          <source>message.book_contains_comments</source>
+          <target>This book contains comments - can't deleted.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

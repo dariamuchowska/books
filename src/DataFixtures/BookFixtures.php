@@ -58,4 +58,3 @@ class BookFixtures extends AbstractBaseFixtures implements DependentFixtureInter
         return [CategoryFixtures::class, UserFixtures::class];
     }
 }
-

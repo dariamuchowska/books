@@ -7,7 +7,7 @@
 {% block body %}
     <h1>{{ 'title.book_details'|trans({'%id%': book.id|default('')}) }}</h1>
     {% if book is defined and book|length %}
-       <dl class="dl-horizontal">
+        <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>
             <dd>{{ book.id }}</dd>
             <dt>{{ 'label.name'|trans }}</dt>
@@ -26,11 +26,11 @@
                 </a>
             {% endif %}
         </p>
-            {% if is_granted('DELETE', book) %}
-                <a href="{{ url('book_delete', {id: book.id}) }}" title="{{ 'action.delete'|trans }}">
-                    {{ 'action.delete'|trans }}
-                </a>
-            {% endif %}
+        {% if is_granted('DELETE', book) %}
+            <a href="{{ url('book_delete', {id: book.id}) }}" title="{{ 'action.delete'|trans }}">
+                {{ 'action.delete'|trans }}
+            </a>
+        {% endif %}
         </p>
         <p>
             <a href="{{ url('book_index') }}" title="{{ 'action.back_to_list'|trans }}">

@@ -37,4 +37,13 @@ interface BookServiceInterface
      */
     public function delete(Book $book): void;
 
+    /**
+     * Can Book be deleted?
+     *
+     * @param Book $book Book entity
+     *
+     * @return bool Result
+     */
+    public function canBeDeleted(Book $book): bool;
+
 }

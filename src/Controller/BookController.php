@@ -192,6 +192,15 @@ class BookController extends AbstractController
     #[IsGranted('DELETE', subject: 'book')]
     public function delete(Request $request, Book $book): Response
     {
+        if (!$this->bookService->canBeDeleted($book)) {
+            $this->addFlash(
+                'warning',
+                $this->translator->trans('message.book_contains_comments')
+            );
+
+            return $this->redirectToRoute('book_index');
+        }
+
         $form = $this->createForm(
             FormType::class,
             $book,

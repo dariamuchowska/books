@@ -7,8 +7,11 @@ namespace App\Service;
 
 use App\Entity\Book;
 use App\Repository\BookRepository;
+use App\Repository\CommentsRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 
 /**
  * Class BookService.
@@ -29,12 +32,15 @@ class BookService implements BookServiceInterface
      * Constructor.
      *
      * @param BookRepository     $bookRepository Book repository
+     * @param CommentsRepository $commentsRepository Comments repository
      * @param PaginatorInterface $paginator      Paginator
      */
-    public function __construct(BookRepository $bookRepository, PaginatorInterface $paginator)
+    public function __construct(BookRepository $bookRepository, CommentsRepository $commentsRepository, PaginatorInterface $paginator)
     {
         $this->bookRepository = $bookRepository;
         $this->paginator = $paginator;
+
+        $this->commentsRepository = $commentsRepository;
     }
 
     /**
@@ -72,4 +78,23 @@ class BookService implements BookServiceInterface
     {
         $this->bookRepository->delete($book);
     }
+
+    /**
+     * Can Book be deleted?
+     *
+     * @param Book $book Book entity
+     *
+     * @return bool Result
+     */
+    public function canBeDeleted(Book $book): bool
+    {
+        try {
+            $result = $this->commentsRepository->countByBook($book);
+
+            return !($result > 0);
+        } catch (NoResultException|NonUniqueResultException) {
+            return false;
+        }
+    }
+
 }
