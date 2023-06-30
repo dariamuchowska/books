@@ -6,8 +6,14 @@
 
 {% block body %}
     <h1>{{ 'title.book_category_list'|trans }}</h1>
-    {% if pagination is defined and pagination.items|length %}
 
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="col-1">
+            <a role="button" class="btn btn-outline-success" id="create-btn" href="{{ url('category_create') }}" title="{{ 'action.create'|trans }}">{{ 'action.create'|trans }}</a>
+        </div>
+    {% endif %}
+
+    {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}
@@ -30,13 +36,6 @@
                         <a class="btn btn-outline-primary" href="{{ url('category_show', {id: category.id}) }}" title="{{ 'action.show'|trans }}">
                             {{ 'action.show'|trans }}
                         </a>
-                    </td>
-                    <td>
-                        {% if is_granted('ADD', category) %}
-                            <a class="btn btn-outline-success" href="{{ url('category_create', {id: category.id}) }}" title="{{ 'action.create'|trans }}">
-                                {{ 'action.create'|trans }}
-                            </a>
-                        {% endif %}
                     </td>
                     <td>
                         {% if is_granted('EDIT', category) %}
