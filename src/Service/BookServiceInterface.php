@@ -8,6 +8,7 @@ namespace App\Service;
 use App\Entity\Book;
 use App\Entity\User;
 use Knp\Component\Pager\Pagination\PaginationInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Interface BookServiceInterface.
@@ -17,11 +18,24 @@ interface BookServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
+     * @param int                $page    Page number
+     * @param array              $filters Filters
+     * @param UserInterface|null $user    User
      *
      * @return PaginationInterface<string, mixed> Paginated list
+     *
+     * @throws NonUniqueResultException
      */
-    public function getPaginatedList(int $page): PaginationInterface;
+    public function getPaginatedList(int $page, array $filters = [], UserInterface $user = null): PaginationInterface;
+
+    /**
+     * Find one book by id.
+     *
+     * @param int $id Book id
+     *
+     * @return Book
+     */
+    public function findOneById(int $id): Book;
 
     /**
      * Save entity.

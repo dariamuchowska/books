@@ -7,6 +7,10 @@
 {% block body %}
     <h1>{{ 'title.comments_list'|trans }}</h1>
 
+    <div class="col-1">
+        <a role="button" class="btn btn-outline-success" id="create-btn" href="{{ url('comments_create') }}" title="{{ 'action.create'|trans }}">{{ 'action.create'|trans }}</a>
+    </div>
+
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center">
@@ -38,10 +42,6 @@
                         <a class="btn btn-outline-primary" href="{{ url('comments_show', {id: comments.id}) }}" title="{{ 'action.show'|trans }}">
                             {{ 'action.show'|trans }}
                         </a>
-                    </td>
-                    <td>
-                        <a class="btn btn-outline-success" href="{{ url('comments_create', {id: comments.id}) }}" title="{{ 'action.create'|trans }}">
-                            {{ 'action.create'|trans }}
                     </td>
                     <td>
                         {% if is_granted('EDIT', comments) %}

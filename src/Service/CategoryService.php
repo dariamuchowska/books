@@ -29,18 +29,34 @@ class CategoryService implements CategoryServiceInterface
     private PaginatorInterface $paginator;
 
     /**
+     * Book repository.
+     */
+    private BookRepository $bookRepository;
+
+    /**
      * Constructor.
      *
      * @param CategoryRepository $categoryRepository Category repository
-     * @param BookRepository    $bookRepository    Book repository
+     * @param BookRepository     $bookRepository     Book repository
      * @param PaginatorInterface $paginator          Paginator
      */
     public function __construct(CategoryRepository $categoryRepository, BookRepository $bookRepository, PaginatorInterface $paginator)
     {
         $this->categoryRepository = $categoryRepository;
         $this->paginator = $paginator;
-
         $this->bookRepository = $bookRepository;
+    }
+
+    /**
+     * Find by id.
+     *
+     * @param int $id Category id
+     * @return Category|null Category entity
+     * @throws NonUniqueResultException
+     */
+    public function findOneById(int $id): ?Category
+    {
+        return $this->categoryRepository->findOneById($id);
     }
 
     /**

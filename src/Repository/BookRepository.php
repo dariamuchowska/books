@@ -12,6 +12,7 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class BookRepository.
@@ -49,17 +50,22 @@ class BookRepository extends ServiceEntityRepository
     /**
      * Query all records.
      *
+     * @param array              $filters Filters
+     * @param UserInterface|null $user    User
+     *
      * @return QueryBuilder Query builder
      */
-    public function queryAll(): QueryBuilder
+    public function queryAll(array $filters): QueryBuilder
     {
-        return $this->getOrCreateQueryBuilder()
+        $queryBuilder = $this->getOrCreateQueryBuilder()
             ->select(
                 'partial book.{id, name, blurb}',
                 'partial category.{id, name}'
             )
             ->join('book.category', 'category')
             ->orderBy('book.id', 'ASC');
+
+        return $this->applyFiltersToList($queryBuilder, $filters);
     }
 
     /**
@@ -117,5 +123,23 @@ class BookRepository extends ServiceEntityRepository
         return $queryBuilder ?? $this->createQueryBuilder('book');
     }
 
+    /**
+     * Apply filters to paginated list.
+     *
+     * @param QueryBuilder          $queryBuilder Query builder
+     * @param array<string, object> $filters      Filters array
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
+    {
+        if (isset($filters['category']) && $filters['category'] instanceof Category) {
+            $queryBuilder
+                ->andWhere('category = :category')
+                ->setParameter('category', $filters['category']);
+        }
+
+        return $queryBuilder;
+    }
 
 }

@@ -36,8 +36,9 @@ class BookController extends AbstractController
     /**
      * Constructor.
      *
-     * @param BookServiceInterface $bookService Book service
-     * @param TranslatorInterface $translator Translator
+     * @param BookServiceInterface     $bookService     Book service
+     * @param TranslatorInterface      $translator      Translator
+     * @param CommentsServiceInterface $commentsService Comments service
      */
     public function __construct(BookServiceInterface $bookService, TranslatorInterface $translator)
     {
@@ -58,9 +59,10 @@ class BookController extends AbstractController
     )]
     public function index(Request $request): Response
     {
-        $pagination = $this->bookService->getPaginatedList(
-            $request->query->getInt('page', 1),
-        );
+        $user = $this->getUser();
+        $filters = $this->getFilters($request);
+        $page = $request->query->getInt('page', 1);
+        $pagination = $this->bookService->getPaginatedList($page, $filters, $user);
 
         return $this->render('book/index.html.twig', ['pagination' => $pagination]);
     }
@@ -229,5 +231,22 @@ class BookController extends AbstractController
                 'book' => $book,
             ]
         );
+    }
+
+    /**
+     * Get filters from request.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return array<string, int> Array of filters
+     *
+     * @psalm-return array{category_id: int, status_id: int}
+     */
+    private function getFilters(Request $request): array
+    {
+        $filters = [];
+        $filters['category_id'] = $request->query->getInt('filters_category_id');
+
+        return $filters;
     }
 }
