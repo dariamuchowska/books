@@ -10,7 +10,7 @@ use App\Repository\UserRepository;
 use App\Form\PasswordChangeType;
 use App\Form\RegistrationFormType;
 use App\Service\UserService;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Service\UserServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,7 +27,7 @@ class SecurityController extends AbstractController
     /**
      * User service.
      */
-    private UserService $userService;
+    private UserServiceInterface $userService;
 
     /**
      * Translator.
@@ -42,7 +42,7 @@ class SecurityController extends AbstractController
      * @param UserService         $userService User service
      * @param TranslatorInterface $translator  Translator
      */
-    public function __construct(UserService $userService, TranslatorInterface $translator)
+    public function __construct(UserServiceInterface $userService, TranslatorInterface $translator)
     {
         $this->userService = $userService;
         $this->translator = $translator;
