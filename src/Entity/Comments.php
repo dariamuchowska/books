@@ -7,7 +7,6 @@ namespace App\Entity;
 
 use App\Repository\CommentsRepository;
 use Doctrine\ORM\Mapping as ORM;
-use DateTimeImmutable;
 
 /**
  * Class Comments.
@@ -20,8 +19,6 @@ class Comments
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -30,32 +27,24 @@ class Comments
 
     /**
      * Created at.
-     *
-     * @var DateTimeImmutable|null
      */
     #[ORM\Column(type: 'datetime_immutable')]
-    private ?DateTimeImmutable $createdAt;
+    private ?\DateTimeImmutable $createdAt;
 
     /**
      * Content.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 1000)]
     private ?string $content = null;
 
     /**
      * Nick.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $nick = null;
 
     /**
      * Book.
-     *
-     * @var Book|null
      */
     #[ORM\ManyToOne(targetEntity: Book::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
@@ -65,8 +54,6 @@ class Comments
 
     /**
      * Author.
-     *
-     * @var User|null
      */
     #[ORM\ManyToOne(targetEntity: User::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
@@ -87,9 +74,9 @@ class Comments
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null Created at
+     * @return \DateTimeImmutable|null Created at
      */
-    public function getCreatedAt(): ?DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
     }
@@ -97,9 +84,9 @@ class Comments
     /**
      * Setter for created at.
      *
-     * @param DateTimeImmutable|null $createdAt Created at
+     * @param \DateTimeImmutable|null $createdAt Created at
      */
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    public function setCreatedAt(?\DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -146,8 +133,6 @@ class Comments
 
     /**
      * Getter for book.
-     *
-     * @return Book|null
      */
     public function getBook(): ?Book
     {
@@ -156,8 +141,6 @@ class Comments
 
     /**
      * Setter for book.
-     *
-     * @param Book|null $book
      */
     public function setBook(?Book $book): void
     {
@@ -166,8 +149,6 @@ class Comments
 
     /**
      * Getter for author.
-     *
-     * @return User|null
      */
     public function getAuthor(): ?User
     {
@@ -176,8 +157,6 @@ class Comments
 
     /**
      * Setter for author.
-     *
-     * @param User|null $author
      */
     public function setAuthor(?User $author): void
     {

@@ -37,7 +37,7 @@ class CommentsController extends AbstractController
      * Constructor.
      *
      * @param CommentsServiceInterface $commentsService Comments service
-     * @param TranslatorInterface $translator Translator
+     * @param TranslatorInterface      $translator      Translator
      */
     public function __construct(CommentsServiceInterface $commentsService, TranslatorInterface $translator)
     {
@@ -131,8 +131,8 @@ class CommentsController extends AbstractController
     /**
      * Edit action.
      *
-     * @param Request $request HTTP request
-     * @param Comments    $comments    Comments entity
+     * @param Request  $request  HTTP request
+     * @param Comments $comments Comments entity
      *
      * @return Response HTTP response
      */

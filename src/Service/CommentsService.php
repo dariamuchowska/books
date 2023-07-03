@@ -9,8 +9,6 @@ use App\Entity\Comments;
 use App\Repository\CommentsRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
-use Doctrine\ORM\NonUniqueResultException;
-use Doctrine\ORM\NoResultException;
 
 /**
  * Class CommentsService.
@@ -30,8 +28,8 @@ class CommentsService implements CommentsServiceInterface
     /**
      * Constructor.
      *
-     * @param CommentsRepository     $commentsRepository Comments repository
-     * @param PaginatorInterface $paginator      Paginator
+     * @param CommentsRepository $commentsRepository Comments repository
+     * @param PaginatorInterface $paginator          Paginator
      */
     public function __construct(CommentsRepository $commentsRepository, PaginatorInterface $paginator)
     {
@@ -62,10 +60,6 @@ class CommentsService implements CommentsServiceInterface
      */
     public function save(Comments $comments): void
     {
-        if ($comments->getId() == null) {
-            $comments->setCreatedAt(new \DateTimeImmutable());
-        }
-
         $this->commentsRepository->save($comments);
     }
 

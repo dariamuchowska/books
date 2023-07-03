@@ -74,7 +74,6 @@ class UserController extends AbstractController
      * @param User $user User entity
      *
      * @return Response HTTP Response
-     *
      */
     #[Route(
         '/{id}/show',
@@ -105,7 +104,7 @@ class UserController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|PUT'
     )]
-    public function my_account(User $user): Response
+    public function myAccount(User $user): Response
     {
         return $this->render(
             'user/my_account.html.twig',
@@ -184,6 +183,7 @@ class UserController extends AbstractController
                 'warning',
                 $this->translator->trans('message.contains_inputs')
             );
+
             return $this->redirectToRoute('user_index');
         }
 

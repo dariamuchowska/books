@@ -5,8 +5,8 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Category;
 use App\Entity\Book;
+use App\Entity\Category;
 use App\Entity\User;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 

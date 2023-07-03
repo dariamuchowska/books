@@ -33,8 +33,6 @@ class CommentsVoter extends Voter
 
     /**
      * Security helper.
-     *
-     * @var Security
      */
     private Security $security;
 
@@ -97,7 +95,7 @@ class CommentsVoter extends Voter
      * Checks if user can edit comments.
      *
      * @param Comments $comments Comments entity
-     * @param User $user User
+     * @param User     $user     User
      *
      * @return bool Result
      */
@@ -110,7 +108,7 @@ class CommentsVoter extends Voter
      * Checks if user can view comments.
      *
      * @param Comments $comments Comments entity
-     * @param User $user User
+     * @param User     $user     User
      *
      * @return bool Result
      */
@@ -123,7 +121,7 @@ class CommentsVoter extends Voter
      * Checks if user can delete comments.
      *
      * @param Comments $comments Comments entity
-     * @param User $user User
+     * @param User     $user     User
      *
      * @return bool Result
      */

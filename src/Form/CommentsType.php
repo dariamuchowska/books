@@ -88,5 +88,4 @@ class CommentsType extends AbstractType
     {
         return 'comments';
     }
-
 }

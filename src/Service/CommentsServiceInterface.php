@@ -35,5 +35,4 @@ interface CommentsServiceInterface
      * @param Comments $comments Comments entity
      */
     public function delete(Comments $comments): void;
-
 }

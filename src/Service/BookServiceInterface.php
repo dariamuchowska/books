@@ -32,8 +32,6 @@ interface BookServiceInterface
      * Find one book by id.
      *
      * @param int $id Book id
-     *
-     * @return Book
      */
     public function findOneById(int $id): Book;
 
@@ -59,5 +57,4 @@ interface BookServiceInterface
      * @return bool Result
      */
     public function canBeDeleted(Book $book): bool;
-
 }

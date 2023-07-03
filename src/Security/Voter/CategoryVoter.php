@@ -6,7 +6,6 @@
 namespace App\Security\Voter;
 
 use App\Entity\Category;
-use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\Security;
@@ -31,7 +30,6 @@ class CategoryVoter extends Voter
      */
     public const EDIT = 'EDIT';
 
-
     /**
      * Delete permission.
      *
@@ -41,8 +39,6 @@ class CategoryVoter extends Voter
 
     /**
      * Security helper.
-     *
-     * @var Security
      */
     private Security $security;
 
@@ -92,5 +88,4 @@ class CategoryVoter extends Voter
 
         return false;
     }
-
 }

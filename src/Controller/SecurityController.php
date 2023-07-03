@@ -6,9 +6,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Repository\UserRepository;
 use App\Form\PasswordChangeType;
 use App\Form\RegistrationFormType;
+use App\Repository\UserRepository;
 use App\Service\UserService;
 use App\Service\UserServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,8 +31,6 @@ class SecurityController extends AbstractController
 
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
@@ -52,6 +50,7 @@ class SecurityController extends AbstractController
      * Login action.
      *
      * @param AuthenticationUtils $authenticationUtils Authentication Utils
+     *
      * @return Response HTTP Response
      */
     #[Route(path: '/login', name: 'app_login')]

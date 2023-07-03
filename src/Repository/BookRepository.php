@@ -8,11 +8,10 @@ namespace App\Repository;
 use App\Entity\Book;
 use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\QueryBuilder;
-use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\ORM\QueryBuilder;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * Class BookRepository.
@@ -50,8 +49,7 @@ class BookRepository extends ServiceEntityRepository
     /**
      * Query all records.
      *
-     * @param array              $filters Filters
-     * @param UserInterface|null $user    User
+     * @param array $filters Filters
      *
      * @return QueryBuilder Query builder
      */
@@ -60,9 +58,11 @@ class BookRepository extends ServiceEntityRepository
         $queryBuilder = $this->getOrCreateQueryBuilder()
             ->select(
                 'partial book.{id, name, blurb}',
-                'partial category.{id, name}'
+                'partial category.{id, name}',
+                'partial author.{id, email}'
             )
             ->join('book.category', 'category')
+            ->join('book.author', 'author')
             ->orderBy('book.id', 'ASC');
 
         return $this->applyFiltersToList($queryBuilder, $filters);
@@ -141,5 +141,4 @@ class BookRepository extends ServiceEntityRepository
 
         return $queryBuilder;
     }
-
 }

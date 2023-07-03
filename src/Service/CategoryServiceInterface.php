@@ -17,7 +17,9 @@ interface CategoryServiceInterface
      * Find by id.
      *
      * @param int $id Category id
+     *
      * @return Category|null Category entity
+     *
      * @throws NonUniqueResultException
      */
     public function findOneById(int $id): ?Category;
@@ -53,5 +55,4 @@ interface CategoryServiceInterface
      * @return bool Result
      */
     public function canBeDeleted(Category $category): bool;
-
 }

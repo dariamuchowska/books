@@ -8,12 +8,10 @@ namespace App\Service;
 use App\Entity\Book;
 use App\Repository\BookRepository;
 use App\Repository\CommentsRepository;
-use App\Service\BookServiceInterface;
-use App\Service\CategoryServiceInterface;
-use Knp\Component\Pager\Pagination\PaginationInterface;
-use Knp\Component\Pager\PaginatorInterface;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -78,8 +76,6 @@ class BookService implements BookServiceInterface
      * Find one book by id.
      *
      * @param int $id Book id
-     *
-     * @return Book
      */
     public function findOneById(int $id): Book
     {
@@ -145,5 +141,4 @@ class BookService implements BookServiceInterface
 
         return $resultFilters;
     }
-
 }

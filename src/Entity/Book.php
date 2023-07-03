@@ -19,8 +19,6 @@ class Book
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -29,16 +27,12 @@ class Book
 
     /**
      * Name.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 100)]
     private ?string $name = null;
 
     /**
      * Blurb.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: 'string', length: 500, nullable: true)]
     private ?string $blurb = null;
@@ -54,8 +48,6 @@ class Book
 
     /**
      * Author.
-     *
-     * @var User|null
      */
     #[ORM\ManyToOne(targetEntity: User::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
@@ -75,8 +67,6 @@ class Book
 
     /**
      * Getter for Name.
-     *
-     * @return string|null
      */
     public function getName(): ?string
     {
@@ -86,7 +76,7 @@ class Book
     /**
      * Setter for Name.
      *
-     * @param string $name
+     * @param string $name Name
      */
     public function setName(string $name): void
     {
@@ -95,8 +85,6 @@ class Book
 
     /**
      * Getter for Blurb.
-     *
-     * @return string|null
      */
     public function getBlurb(): ?string
     {
@@ -106,7 +94,7 @@ class Book
     /**
      * Setter for Blurb.
      *
-     * @param string|null $blurb
+     * @param string|null $blurb Blurb
      */
     public function setBlurb(?string $blurb): void
     {
@@ -115,8 +103,6 @@ class Book
 
     /**
      * Getter for Category.
-     *
-     * @return Category|null
      */
     public function getCategory(): ?Category
     {
@@ -126,7 +112,7 @@ class Book
     /**
      * Setter for Category.
      *
-     * @param Category|null $category
+     * @param Category|null $category Category
      */
     public function setCategory(?Category $category): void
     {
@@ -135,8 +121,6 @@ class Book
 
     /**
      * Getter for author.
-     *
-     * @return User|null
      */
     public function getAuthor(): ?User
     {
@@ -146,7 +130,7 @@ class Book
     /**
      * Setter for author.
      *
-     * @param User|null $author
+     * @param User|null $author User
      */
     public function setAuthor(?User $author): void
     {
