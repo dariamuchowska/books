@@ -84,7 +84,7 @@ class Comments
     /**
      * Setter for created at.
      *
-     * @param \DateTimeImmutable|null $createdAt Created at
+     * @param \DateTimeImmutable $createdAt Created at
      */
     public function setCreatedAt(?\DateTimeImmutable $createdAt): void
     {
@@ -133,6 +133,8 @@ class Comments
 
     /**
      * Getter for book.
+     *
+     * @return Book|null Book
      */
     public function getBook(): ?Book
     {
@@ -141,6 +143,8 @@ class Comments
 
     /**
      * Setter for book.
+     *
+     * @param Book|null $book Book
      */
     public function setBook(?Book $book): void
     {
@@ -149,6 +153,8 @@ class Comments
 
     /**
      * Getter for author.
+     *
+     * @return User|null User
      */
     public function getAuthor(): ?User
     {
@@ -157,6 +163,8 @@ class Comments
 
     /**
      * Setter for author.
+     *
+     * @param User|null $author User
      */
     public function setAuthor(?User $author): void
     {

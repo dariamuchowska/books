@@ -18,9 +18,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class UserController.
- *
- * @Route("/user")
  */
+#[Route('/user')]
 class UserController extends AbstractController
 {
     /**

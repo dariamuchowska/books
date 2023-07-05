@@ -68,7 +68,7 @@ class Category
     /**
      * Setter for name.
      *
-     * @param string|null $name Name
+     * @param string $name Name
      */
     public function setName(?string $name): void
     {
@@ -78,7 +78,7 @@ class Category
     /**
      * Getter for slug.
      *
-     * @return string|null $slug Slug
+     * @return string|null Slug
      */
     public function getSlug(): ?string
     {

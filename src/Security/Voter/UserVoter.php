@@ -39,6 +39,8 @@ class UserVoter extends Voter
 
     /**
      * Password change permission.
+     *
+     * @const string
      */
     public const PASSWORD = 'PASSWORD';
 
@@ -103,8 +105,8 @@ class UserVoter extends Voter
     /**
      * Checks if user is Owner or Admin.
      *
-     * @param      $subject Object
-     * @param User $user    User
+     * @param object $subject Object
+     * @param User   $user    User
      *
      * @return bool Result
      */

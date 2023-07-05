@@ -76,6 +76,8 @@ class BookService implements BookServiceInterface
      * Find one book by id.
      *
      * @param int $id Book id
+     *
+     * @return Book Book
      */
     public function findOneById(int $id): Book
     {

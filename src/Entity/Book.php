@@ -10,8 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class Book.
- *
- * @psalm-suppress MissingConstructor
  */
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 #[ORM\Table(name: 'books')]
@@ -39,8 +37,6 @@ class Book
 
     /**
      * Category.
-     *
-     * @var Category
      */
     #[ORM\ManyToOne(targetEntity: Category::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
@@ -67,6 +63,8 @@ class Book
 
     /**
      * Getter for Name.
+     *
+     * @return string|null Name
      */
     public function getName(): ?string
     {
@@ -85,6 +83,8 @@ class Book
 
     /**
      * Getter for Blurb.
+     *
+     * @return string|null Blurb
      */
     public function getBlurb(): ?string
     {
@@ -94,7 +94,7 @@ class Book
     /**
      * Setter for Blurb.
      *
-     * @param string|null $blurb Blurb
+     * @param string $blurb Blurb
      */
     public function setBlurb(?string $blurb): void
     {
@@ -103,6 +103,8 @@ class Book
 
     /**
      * Getter for Category.
+     *
+     * @return Category|null Category
      */
     public function getCategory(): ?Category
     {
@@ -121,6 +123,8 @@ class Book
 
     /**
      * Getter for author.
+     *
+     * @return User|null User
      */
     public function getAuthor(): ?User
     {

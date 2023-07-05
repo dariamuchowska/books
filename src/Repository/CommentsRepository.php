@@ -16,12 +16,12 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * Class CommentsRepository.
  *
- * @extends ServiceEntityRepository<Comments>
- *
  * @method Comments|null find($id, $lockMode = null, $lockVersion = null)
  * @method Comments|null findOneBy(array $criteria, array $orderBy = null)
  * @method Comments[]    findAll()
  * @method Comments[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ *
+ * @extends ServiceEntityRepository<Comments>
  */
 class CommentsRepository extends ServiceEntityRepository
 {
@@ -60,14 +60,14 @@ class CommentsRepository extends ServiceEntityRepository
                 'partial author.{id, email}'
             )
             ->join('comments.book', 'book')
-            ->join('book.author', 'author')
+            ->join('comments.author', 'author')
             ->orderBy('comments.id', 'ASC');
     }
 
     /**
      * Count comments by book.
      *
-     * @param Book $book Book
+     * @param Book $book Book entity
      *
      * @return int Number of comments in book
      *
@@ -118,33 +118,4 @@ class CommentsRepository extends ServiceEntityRepository
     {
         return $queryBuilder ?? $this->createQueryBuilder('comments');
     }
-
-    // ...
-
-    // ...
-
-    //    /**
-    //     * @return Comments[] Returns an array of Comments objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Comments
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
 }

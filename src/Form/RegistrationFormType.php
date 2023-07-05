@@ -40,7 +40,8 @@ class RegistrationFormType extends AbstractType
      * This method is called for each type in the hierarchy starting from the
      * top most type. Type extensions can further modify the form.
      *
-     * @param array<string, mixed> $options
+     * @param FormBuilderInterface $builder The form builder
+     * @param array<string, mixed> $options Form options
      *
      * @see FormTypeExtensionInterface::buildForm()
      */
@@ -72,6 +73,8 @@ class RegistrationFormType extends AbstractType
 
     /**
      * Configures the options for this type.
+     *
+     * @param OptionsResolver $resolver The resolver for the options
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -83,6 +86,8 @@ class RegistrationFormType extends AbstractType
      *
      * The block prefix defaults to the underscored short class name with
      * the "Type" suffix removed (e.g. "UserProfileType" => "user_profile").
+     *
+     * @return string The prefix of the template block name
      */
     public function getBlockPrefix(): string
     {
